@@ -32,9 +32,21 @@
 
             computed:{
                 output () {
-                    let json = this.toParse ? JSON.parse(this.toParse) : {};
+                    let json = this.toParse.split('\n');
 
-                    return JSON.stringify(json);
+
+                    json = json.map(s => {
+                        s = s.replace(/["]/g, '\\"');
+                        s = s.replace(/(^)/g, '"');
+                        s = s.replace(/($)/g, '" + ');
+                        // s = s.replace("+", '" + ');
+        
+                        return s;
+                    });
+
+                    json = json.join('\n');
+
+                    return json.substring(0, json.length -2);
                 }
             }
         })
