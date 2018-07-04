@@ -10,12 +10,13 @@
 <body>
 
     <section class="section" id="app">
-        <div class="columns">
-            <div class="column">
+        <h1 class="title is-2">C# JSON Formatter to String</h1>
+        <div class="columns is-multiline">
+            <div class="column is-12">
                 <textarea v-model="toParse" class="textarea" placeholder="JSON String" rows="10"></textarea>
             </div>
 
-            <div class="column">
+            <div class="column is-12">
                 <textarea v-model="output" class="textarea" placeholder="Output" rows="10"></textarea>
             </div>
         </div>
@@ -39,7 +40,6 @@
                         s = s.replace(/["]/g, '\\"');
                         s = s.replace(/(^)/g, '"');
                         s = s.replace(/($)/g, '" + ');
-                        // s = s.replace("+", '" + ');
         
                         return s;
                     });
